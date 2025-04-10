@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="btn">btn</div>
+    <script>
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', async function() {
+            console.log(11)
+            const pdata = {userId: '000'}
+            sessionStorage.setItem('data', JSON.stringify(pdata))
+            const res = await fetchData()
+            console.log(res)
+        })
+        function fetchData() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const data = [{id: 1}]
+                    resolve(data);
+                })
+            })
+        }
+    </script>
+</body>
+</html>
